@@ -1,0 +1,54 @@
+body {
+
+  font-size:12px;
+  margin:0px;
+  padding:0px;
+  
+}
+
+#menu li {
+  float:left;
+  list-style-type:none;
+  margin-left:10px;
+}
+#menu {
+
+  margin-top:0;
+  padding:0;
+  position:absolute;
+  right:10px;
+  top:0;
+  padding-top: 4px;
+  
+}
+
+#menu ul {
+
+  margin:0px;
+  
+}
+
+#resoconto {
+
+  background-color:PapayaWhip;
+  margin:10px 0 10px 15px;
+  padding:4px;
+  width:400px;
+  
+}
+
+#table {
+
+  margin-left: 18px;
+  
+}
+
+#resoconto span {
+  color:red;
+  font-weight:bold;
+}
+
+#dataTable_paginate span {
+    margin-right: 5px;
+    font-weight: bold;
+}

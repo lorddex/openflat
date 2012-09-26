@@ -1,0 +1,10 @@
+Howto install FlatManager
+
+  *  Download all the code from the svn repository
+  *  copy it using your FTP server
+  *  create a new database
+  *  create tables executing queries that you can find in include/database/query_to_create_db.sql
+  *  insert one (or more) user using PhpMyAdmin into "login" table, password must be encripted using SHA1
+  *  insert database login informations editing the _construct of the class MySQLDatabase in the file include/database/MySQLQuery.ink.php
+  *  go to http://yoururl/flatmanager-folder/login.php
+
