@@ -21,9 +21,6 @@
 */
 
      require("includes/Includes.inc.php");
-
-     $db = new MySqlDatabase();
-     $db->connect();
        
      if (isset($_POST['user']) && isset($_POST['realpwd']) && Functions::checkSimpleText($_POST['user']) && Functions::checkSHA($_POST['realpwd'])) {
      

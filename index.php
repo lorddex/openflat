@@ -21,9 +21,6 @@
 */
 
       require("includes/Includes.inc.php");
-
-      $db = new MySqlDatabase();
-      $db->connect();
       
       if (!isset($_SESSION['user_id']) || !isset($_SESSION['user']) || !isset($_SESSION['ip']) || $_SESSION['ip'] != $_SERVER['REMOTE_ADDR']) {
             header("Location: login.php");

@@ -22,10 +22,6 @@
 
       require("includes/Includes.inc.php");
       include "includes/libchart/classes/libchart.php";
-
-    
-      $db = new MySqlDatabase();
-      $db->connect();
       
       if (!isset($_SESSION['user_id']) || !isset($_SESSION['user']) || !isset($_SESSION['ip']) || $_SESSION['ip'] != $_SERVER['REMOTE_ADDR']) {
             header("Location: login.php");
@@ -37,82 +33,11 @@
 
       if (isset($_GET['action']) && $_GET['action'] != "") {
       
-            $action = $_GET['action'];
-      
-?>
-                  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="it">
-    <head>
-    <title>bolledisapone</title>
-      <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-      <link rel="stylesheet" type="text/css" href="css/style.css" >
-      <script type="text/javascript" language="javascript" src="js/jquery.js"></script>
-      <script type="text/javascript" language="javascript" src="js/jquery.dataTables.js"></script>
-            <script type="text/javascript" charset="utf-8">
-            
-            		      $(document).ready(function() {
-				  $('#dataTable').dataTable( {
-				    "aaSorting": [[ 2, "desc" ]],
-				    "bPaginate": false,
-				    "aoColumns": [ null, null, null, null, null, null, null ]
-				    } );
-				  
-			       } );
-            		
-                              /* jQuery.fn.dataTableExt.aTypes.unshift(
-                                        function ( sData )
-                                        {
-                                                  var Char;
-                                                  var bDecimal = false;
-                                                  
-                                                  if (!sData.match(/^[0-9]{2}[-\/][0-9]{2}[-\/]{1}[0-9]{4}$/)) {
-                                                            return null;
-                                                  }
-                                                  
-                                                  return 'data-sorting';
-                                        }
-                              );
-                              
-                              jQuery.fn.dataTableExt.oSort['data-sorting-asc']  = function(a,b) {
-                                        var arr1 = a.split('/');
-                                        var arr2 = b.split('/');
-                                        var x = new String(arr1[2] + arr1[1] + arr1[0]);
-                                        x = parseInt(x);
-                                        var y = new String(arr2[2] + arr2[1] + arr2[0]);
-                                        y = parseInt(y);
-                                        return ((x < y) ? -1 : ((x > y) ?  1 : 0));
-                              };
-                              
-                              jQuery.fn.dataTableExt.oSort['data-sorting-desc'] = function(a,b) {
-                                        var arr1 = a.split('/');
-                                        var arr2 = b.split('/');
-                                        var x = new String(arr1[2] + arr1[1] + arr1[0]);
-                                        x = parseInt(x);
-                                        var y = new String(arr2[2] + arr2[1] + arr2[0]);
-                                        y = parseInt(y);
-                                        return ((x < y) ?  1 : ((x > y) ? -1 : 0));
-                              }; */
-                              
-                             
-                
-                function conferma(url){
-                      if(confirm("<?php echo getIntText("listspese_confirm"); ?>")==true)
-                            document.location=url;
-                };
-                    </script>
+		$action = $_GET['action'];
 
-  </head>
-  <body> 
-      <div id="menu"> 
-	<ul>
-	  <li><a href="list_spese.php?action=list"><?php echo getIntText("menu_list"); ?></a></li>
-          <li><a href="list_spese.php?action=user"><?php echo getIntText("menu_user"); ?></a></li>
-          <li><a href="list_spese.php?action=month"><?php echo getIntText("menu_month"); ?></a></li>
-          <li><a href="add_spesa.php"><?php echo getIntText("menu_addspesa"); ?></a></li>
-          <li><a href="login.php?action=logout"><?php echo getIntText("menu_logout"); ?></a></li>
-	</ul>
-      </div>
+		include "includes/header.inc.php";
+
+?>
       <div id="resoconto">
 <?php
     

@@ -20,11 +20,14 @@
     along with Foobar.  If not, see <http://www.gnu.org/licenses/>. 
 */
 
-      session_start();
+	session_start();
       
-      require("configuration.inc.php");
-      require("Functions.inc.php");
-      require("database/Database.inc.php");
-      require("Languages.inc.php");
+	require("configuration.inc.php");
+	require("Functions.inc.php");
+	require("database/Database.inc.php");
+	require("Languages.inc.php");
+
+	$db = new MySQLDatabase();
+	$db->connect();	
 
 ?>

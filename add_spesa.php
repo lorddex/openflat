@@ -22,9 +22,6 @@
 
       require("includes/Includes.inc.php");
 
-      $db = new MySqlDatabase();
-      $db->connect();
-
       if (!isset($_SESSION['user_id']) || !isset($_SESSION['user']) || !isset($_SESSION['ip']) || $_SESSION['ip'] != $_SERVER['REMOTE_ADDR']) {
             header("Location: login.php");
       }
@@ -45,7 +42,7 @@
             foreach ($users as $user)
                   Functions::mail($user->getMail(), getIntText("addspesa_mail_subject"), $_SESSION['user'] . getIntText("addspesa_mail_text1") . $spesa->getValue() . getIntText("addspesa_mail_text2") . $spesa->getDesc() . "\n");
       } else {
-      
+  /*    
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -55,15 +52,6 @@
       <meta http-equiv="content-type" content="text/html; charset=UTF-8">
       <link rel="stylesheet" type="text/css" href="css/style.css" >
       <script type="text/javascript" language="javascript">
-            function correct() {
-              var val = new String(document.getElementById('value').value);
-              var conf = confirm(<?php echo getIntText("addspesa_confirm"); ?> + val + "?");
-              if (conf==false)
-                    return false;
-              val = val.replace(",", ".");
-              document.getElementById('value').value = val;
-              return true;
-            };
       </script>
       <!--<script type="text/javascript" language="javascript" src="js/jquery.js"></script>
       <script type="text/javascript" language="javascript" src="js/jquery.dataTables.js"></script>
@@ -117,7 +105,10 @@
                         <li><a href="add_spesa.php"><?php echo getIntText("menu_addspesa"); ?></a></li>
                         <li><a href="login.php?action=logout"><?php echo getIntText("menu_logout"); ?></a></li></ul>
       </div>
-     <div id="container">
+*/
+
+	include "includes/header.inc.php";
+?>
       <form action="add_spesa.php" method="POST" id="form1" onsubmit="return correct();">
             <input type="hidden" id="user" name="user" value="<?php echo $_SESSION['user_id']; ?>"></input>
             <label for="value"><?php echo getIntText("addspesa_value"); ?></label><input type="text" id="value" name="value"></input><br />
@@ -131,9 +122,7 @@
 	    </select><br />
             <input type="submit" value="<?php echo getIntText("addspesa_submit"); ?>"></input>
       </form>
-    </div>
-  </body>
-</html> 
 <?php
+	include("includes/footer.inc.php");
       }
 ?>
